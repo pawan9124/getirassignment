@@ -1,8 +1,9 @@
 import 'dotenv/config'
-import { Db, MongoClient } from 'mongodb';
 import { app } from './app';
 import { DatabaseConnectionError } from './error-handlers/database-connection-error';
 import { connectToDatabase } from './mongohelper';
+
+const port = process.env.PORT || 8080;
 
 
 
@@ -22,7 +23,7 @@ const start = async () => {
         console.log(err);
         throw new DatabaseConnectionError();
     }
-    app.listen(3000, () => console.log("Giter app is listening on the port 3000!!!!!!!"));
+    app.listen(port, () => console.log("Giter app is listening on the port 3000!!!!!!!"));
 }
 
 start();
