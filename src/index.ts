@@ -3,7 +3,7 @@ import { app } from './app';
 import { DatabaseConnectionError } from './error-handlers/database-connection-error';
 import { connectToDatabase } from './mongohelper';
 
-const port = process.env.PORT || 8080;
+const port = process.env.NODE_ENV !== 'production' ? process.env.PORT : 8080;
 
 
 
